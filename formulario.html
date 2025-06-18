@@ -21,7 +21,7 @@
                 <br>
                 <label for="codigopostal" > Codigo Postal</label>
                 <br>
-                <input type="number" name="codigopostal" id="codigpostal" required>
+                <input type="number" name="codigopostal" id="codigopostal" required>
                 <br>
                 <label for="genero" > Género</label>
 
@@ -54,14 +54,27 @@
 
             <br>
 
-            <select name="Pais" id="genero">
+            <select name="Pais" id="pais">
                 <option value="Pais">Selecciona tu pais</option>
-                <option value="mexico">Mexico</option>
+                <option value="Mexico">Mexico</option>
+                <option value="España">España</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Peru">Peru</option>
+                <option value="Chile">Chile</option>
+                <option value="Venezuela">Venezuela</option>
+                <option value="Otro">Otro</option>
             </select>
 
             <br>
-
-            <button type="submit" class="submitbtn"> Enviar Formulario </button>
+            <label for="comentarios">Coloca tus comentarios aquí</label>
+            <br>
+            <input type="text" name="comentarios" id="comentarios">
+            <br>
+            <label for="img">Agrega tu imagen</label>
+            <input type="file" accept="image/*">
+            <br>
+            <button type="submit" class="submit"> Enviar Formulario </button>
         </div>
         </form>
     </div>
@@ -89,13 +102,19 @@
     let intereses = ["arte", "musica", ""];
     form.addEventListener("submit",function(event){
         event.preventDefault();
-        let genero = this.querySelector("inut[name='genero']:checked");
+        let input_genero = document.querySelector("input[name='genero']:checked");
         if(nombre.value==""){
             console.log("Completa el nombre");
         }
         if(isNaN(edad.value)||edad.value==""){
             console.log("La edad ("+edad.value+") no es una edad valida");
         }
+        if(codigopostal.value.length==5){
+            console.log("El codigo postal("+codigopostal.value+") es valido");
+        }
+        else{
+            console.log("El codigo postal("+codigopostal.value+") es invalido");
+        }   
         /*
        
             if(codigopostal.value.length==5){
@@ -105,9 +124,10 @@
                 console.log("El codigo postal("+codigopostal.value+") es invalido");
            */ 
         
-         if(genero.indexOf(genero.value)==-1){
+         if(genero.indexOf(input_genero.value)==-1){
             console.log("Selecciona un genero");
          }
+         console.log(input_genero.value);
     });
 </script>
 </html>
