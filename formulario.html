@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contenedor">
+        <h1> Formulario Completo</h1>
+        <form id="formulario">
+            <div class="division1">
+                <labe for="nombre">Nombre Completo</labe>
+                <br>
+                <input type="text" id="nombre" name="nombre" required>
+           
+                <br>
+                <label for="edad">Edad</label>
+                <br>
+                <input type="number" name="edad" id="edad" min="1" integer required>
+                <br>
+                <label for="codigopostal" > Codigo Postal</label>
+                <br>
+                <input type="number" name="codigopostal" id="codigpostal" required>
+                <br>
+                <label for="genero" > Género</label>
 
+                <br>
+
+                <input type="radio" id="Masculino" name="genero" value="Masculino">
+                
+                <label> Masculino</label>
+
+                <input type="radio" id="Femenino" name="genero" value="Femenino" >
+
+                <labe>Femenino</labe>
+
+                <input type="radio" id="Otro" name="genero" value="Otro" >
+
+                <labe>Otro</labe>
+            <br>
+            <label for="intereses"> Intereses (selecciona todos los que aplique);</label>
+            <br>
+            <input type="checkbox" name="checkbox" id="extras" value="Tecnologia">
+            <label> Tecnologia</label>
+            <input type="checkbox" name="checkbox" id="Deportes" value="Deportes">
+            <label> Deportes</label>
+            <input type="checkbox" name="checkbox" id="Musica" value="Musica">
+            <label> Musica</label>
+            <input type="checkbox" name="checkbox" id="Arte" value="Arte">
+            <label> Arte</label>
+            <br>
+            <label for="genero"> Pais</label>
+
+            <br>
+
+            <select name="Pais" id="genero">
+                <option value="Pais">Selecciona tu pais</option>
+                <option value="mexico">Mexico</option>
+            </select>
+
+            <br>
+
+            <button type="submit" class="submitbtn"> Enviar Formulario </button>
+        </div>
+        </form>
+    </div>
+</body>
+<style>
+    .contenedor {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 40;
+        max-width: 600px;
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.2);;
+    }
+    div {
+        display: block;
+        unicode-bidi: isolate;
+    }
+</style>
+<script>
+    let form=document.getElementById("formulario");
+    let edad =document.getElementById("edad");
+    let codigopostal=document.getElementById("codigopostal")
+    let nombre=document.getElementById("nombre");
+    let genero=["Masculino","Femenino", "Otro"]
+    let intereses = ["arte", "musica", ""];
+    form.addEventListener("submit",function(event){
+        event.preventDefault();
+        let genero = this.querySelector("inut[name='genero']:checked");
+        if(nombre.value==""){
+            console.log("Completa el nombre");
+        }
+        if(isNaN(edad.value)||edad.value==""){
+            console.log("La edad ("+edad.value+") no es una edad valida");
+        }
+        /*
+       
+            if(codigopostal.value.length==5){
+                console.log("El codigo postal("+codigopostal.value+") es valido");
+            }
+            else 
+                console.log("El codigo postal("+codigopostal.value+") es invalido");
+           */ 
+        
+         if(genero.indexOf(genero.value)==-1){
+            console.log("Selecciona un genero");
+         }
+    });
+</script>
+</html>
